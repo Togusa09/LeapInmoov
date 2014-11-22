@@ -9,8 +9,11 @@ Finger::Finger(int fingerIndex, int min, int max) : index(fingerIndex) , minPos(
 void Finger::SetPosition(int position)
 {
 	
-	if (position >= 0 || position <= 255)
+	if (position >= 0 )
 	{
+		if (position > 255)
+			position = 255;
+
 		// map the position to the range for this servo
 		position = map(position, 0, 255, minPos, maxPos);
 		//Serial.print(index);

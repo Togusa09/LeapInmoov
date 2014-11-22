@@ -10,10 +10,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5490A01-4909-4494-A201-205D608343EF}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		tests.runsettings = tests.runsettings
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapRelay.Test", "LeapRelay.Test\LeapRelay.Test.csproj", "{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ArduinoDebug|Any CPU = ArduinoDebug|Any CPU
+		ArduinoDebug|Mixed Platforms = ArduinoDebug|Mixed Platforms
+		ArduinoDebug|Win32 = ArduinoDebug|Win32
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
@@ -22,6 +28,11 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39544D65-90A3-47DB-BA8F-1B8687489739}.ArduinoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39544D65-90A3-47DB-BA8F-1B8687489739}.ArduinoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{39544D65-90A3-47DB-BA8F-1B8687489739}.ArduinoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{39544D65-90A3-47DB-BA8F-1B8687489739}.ArduinoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{39544D65-90A3-47DB-BA8F-1B8687489739}.ArduinoDebug|Win32.ActiveCfg = Debug|Any CPU
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -32,9 +43,13 @@ Global
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{39544D65-90A3-47DB-BA8F-1B8687489739}.Release|Win32.ActiveCfg = Release|Any CPU
+		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.ArduinoDebug|Any CPU.ActiveCfg = Debug|Win32
+		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.ArduinoDebug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.ArduinoDebug|Mixed Platforms.Build.0 = Debug|Win32
+		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.ArduinoDebug|Win32.ActiveCfg = Debug|Win32
+		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.ArduinoDebug|Win32.Build.0 = Debug|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Debug|Win32.ActiveCfg = Debug|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Debug|Win32.Build.0 = Debug|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Release|Any CPU.ActiveCfg = Release|Win32
@@ -42,6 +57,21 @@ Global
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Release|Win32.ActiveCfg = Release|Win32
 		{7F4CE587-9AB3-429D-BD61-D55AFE98EFCD}.Release|Win32.Build.0 = Release|Win32
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.ArduinoDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.ArduinoDebug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.ArduinoDebug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.ArduinoDebug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.ArduinoDebug|Win32.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2A0DD7A9-95E0-40C4-A653-C34E2661D7ED}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

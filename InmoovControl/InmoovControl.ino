@@ -28,20 +28,28 @@ void loop()
 	
 	if (Serial.available() > 0)
 	{
-		Serial.println("Serial Recieved");
+		//Serial.println("Serial Recieved");
+		while (Serial.available() && Serial.read() != 0x43) {  }
+		Serial.println("now");
+
+
 		short buffer[5];
 		Serial.readBytes((char*)buffer, 5 * sizeof(short));
-		Serial.println((char*)buffer);
+
+
+		Serial.println("Recieved");
 
 		for (int finger = 0; finger < 5; finger++)
 		{
-			Serial.println(buffer[finger]);
+			Serial.print(buffer[finger]);
+			Serial.print("\t");
 			fingers[finger]->SetPosition(buffer[finger]);
 		}
+		Serial.println("");
 
 
 		// Delay after change to give servos time to act
-		//delay(10);
+		delay(15);
 		
 	}
 	delay(10);

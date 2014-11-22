@@ -13,6 +13,9 @@ namespace LeapSample
     {
         static Controller controller;
         static SerialPort serialPort;
+        static Object thisLock = new Object();
+
+        static FingerMotionThing allFingers;
 
         static void Main(string[] args)
         {
@@ -37,6 +40,8 @@ namespace LeapSample
             if (!controller.IsConnected)
                 Console.WriteLine("Leap controller is not connected");
 
+            allFingers = new FingerMotionThing();
+
             while(true)
             {
                 UpdateArdiuno();
@@ -52,17 +57,20 @@ namespace LeapSample
         {
                 SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-            Console.WriteLine(indata);
+           // SafeWriteLine(indata);
         }
 
         static void UpdateArdiuno()
         {
             Frame frame = controller.Frame();
+           
             byte[] output;
-            if (frame.Fingers.Count() == 0)
+            if (frame.Hands.Count() == 0)
             {
                 // -1 per finger
-                output = new byte[] {0xFF, 0xFF, 
+                output = new byte[] {
+                    0x43,
+                    0xFF, 0xFF, 
                                         0xFF, 0xFF, 
                                         0xFF, 0xFF, 
                                         0xFF, 0xFF, 
@@ -70,13 +78,30 @@ namespace LeapSample
             }
             else
             {
+                var hand = frame.Hands.First();
                 // pass the position values as shorts
-                output = frame.Fingers.Select(f => f.IsExtended ? (byte)0x00 : (byte)0xFF)
+                //output = hand.Fingers.Select(f => f.IsExtended ? (byte)0x00 : (byte)0xFF)
+                //    .SelectMany(f => new byte[] { f, 0x00 }).ToArray();
+               
+                
 
-                    //.Cast<byte>()
-                    .SelectMany(f => new byte[] { f, 0x00 }).ToArray();
+                var angles = hand.Fingers.Select(f => hand.Direction.AngleTo(f.Direction).Remap(0.0f, 2.2f, 0.0f, 255));
+                SafeWriteLine(string.Join("\t", angles));
+                var temp = angles.SelectMany(f => new byte[] { (byte)(f), 0x00 }).ToList();
+                temp.Insert(0, 0x43);
+                output = temp.ToArray();
             }
             serialPort.Write(output, 0, output.Length);
         }
+
+        private static void SafeWriteLine(String line)
+        {
+            lock (thisLock)
+            {
+                Console.WriteLine(line);
+            }
+        }
+
+        
     }
 }
