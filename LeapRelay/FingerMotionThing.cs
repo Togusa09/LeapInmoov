@@ -28,7 +28,7 @@ namespace LeapSample
             };
         }
 
-        private byte[] GetArduinoMessage(Hand hand)
+        private byte[] GetArduinoMessage(IHandProxy hand)
         {
             var bytes = new List<byte>();
             bytes.Add(_CommandStart);
@@ -36,13 +36,13 @@ namespace LeapSample
             return bytes.ToArray();
         }
 
-        private byte[] GetBytesForHand(Hand hand)
+        private byte[] GetBytesForHand(IHandProxy hand)
         {
             var bytes = new List<byte>();
 
             foreach(var finger in hand.Fingers)
             {
-                var fingerModel = Fingers.First(f => f.Type == finger.Type());
+                var fingerModel = Fingers.First(f => f.Type == finger.Type);
                 bytes.AddRange(fingerModel.GetBytes(finger.Direction, hand.Direction));
             }
 

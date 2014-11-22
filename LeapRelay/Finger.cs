@@ -35,7 +35,7 @@ namespace LeapSample
         /// <param name="finger">Leap finger</param>
         /// <param name="hand">Leap hand</param>
         /// <returns></returns>
-        public IEnumerable<byte> GetBytes(Vector fingerDirection, Vector handDirection)
+        public byte[] GetBytes(Vector fingerDirection, Vector handDirection)
         {
             var angleRad = handDirection
                 .AngleTo(fingerDirection);

@@ -47,10 +47,6 @@ namespace LeapSample
                 UpdateArdiuno();
                 Thread.Sleep(100);
             }
-
-            // Keep this process running until Enter is pressed
-            Console.WriteLine("Press Enter to quit...");
-            Console.ReadLine();
         }
 
         private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
