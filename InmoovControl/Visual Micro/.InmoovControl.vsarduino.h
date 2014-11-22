@@ -45,4 +45,6 @@ extern "C" void __cxa_pure_virtual() {;}
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\leonardo\pins_arduino.h" 
 #include "P:\Documents\GitHub\LeapInmoov\InmoovControl\InmoovControl.ino"
+#include "P:\Documents\GitHub\LeapInmoov\InmoovControl\Finger.cpp"
+#include "P:\Documents\GitHub\LeapInmoov\InmoovControl\Finger.h"
 #endif

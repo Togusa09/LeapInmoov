@@ -31,7 +31,7 @@ namespace LeapSample
             serialPort.PortName = "COM17";
             serialPort.BaudRate = 57600;
             serialPort.DtrEnable = true;
-           // serialPort.DataReceived += serialPort_DataReceived;
+            serialPort.DataReceived += serialPort_DataReceived;
             serialPort.Open();
 
             if (!controller.IsConnected)
@@ -40,7 +40,7 @@ namespace LeapSample
             while(true)
             {
                 UpdateArdiuno();
-                Thread.Sleep(300);
+                Thread.Sleep(100);
             }
 
             // Keep this process running until Enter is pressed
@@ -48,18 +48,35 @@ namespace LeapSample
             Console.ReadLine();
         }
 
+        private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+                SerialPort sp = (SerialPort)sender;
+            string indata = sp.ReadExisting();
+            Console.WriteLine(indata);
+        }
+
         static void UpdateArdiuno()
         {
             Frame frame = controller.Frame();
+            byte[] output;
             if (frame.Fingers.Count() == 0)
             {
-                serialPort.WriteLine("-1 -1 -1 -1 -1");
-                return;
+                // -1 per finger
+                output = new byte[] {0xFF, 0xFF, 
+                                        0xFF, 0xFF, 
+                                        0xFF, 0xFF, 
+                                        0xFF, 0xFF, 
+                                        0xFF, 0xFF};
             }
+            else
+            {
+                // pass the position values as shorts
+                output = frame.Fingers.Select(f => f.IsExtended ? (byte)0x00 : (byte)0xFF)
 
-            var output = string.Empty;
-            output = string.Join("\t", frame.Fingers.Select(f => f.IsExtended ? 10 : 128));
-            serialPort.WriteLine(output);
+                    //.Cast<byte>()
+                    .SelectMany(f => new byte[] { f, 0x00 }).ToArray();
+            }
+            serialPort.Write(output, 0, output.Length);
         }
     }
 }
