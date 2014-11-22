@@ -2,8 +2,8 @@ Interfaces a single inmoov arm with a Leap using an arduino. The fingers are cur
 
 Instructions:
 1. Upload sketch to arduino
-2. Run console application
-3. Open and close hand above the leap
+1. Run console application
+1. Open and close hand above the leap
 
 Todo:
 - Enforce correct finger order between leap and inmoov
