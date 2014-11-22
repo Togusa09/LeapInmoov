@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeapSample
 {
-    class FingerMotionThing
+    public class FingerMotionThing
     {
         private static byte _CommandStart = 0x43;
         public List<FingerModel> Fingers { get; set; }
@@ -28,7 +28,7 @@ namespace LeapSample
             };
         }
 
-        private byte[] GetArduinoMessage(IHandProxy hand)
+        public byte[] GetArduinoMessage(IHandProxy hand)
         {
             var bytes = new List<byte>();
             bytes.Add(_CommandStart);
