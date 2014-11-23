@@ -22,11 +22,11 @@ namespace LeapSample.MessageGenerator
             {
                 Fingers = new List<IFingerMessageGenerator>
                 {
-                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_PINKY, 0, 0.0f, 2.2f),
-                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_RING, 1, 0.0f, 2.2f),
-                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_MIDDLE, 2, 0.0f, 2.2f),
-                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_INDEX, 3, 0.0f, 2.2f),
-                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_THUMB, 4,0.0f, 0.5f)
+                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_PINKY, 0, 0.0f, 90.0f),
+                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_RING, 1, 0.0f, 90.0f),
+                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_MIDDLE, 2, 0.0f, 90.0f),
+                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_INDEX, 3, 0.0f, 90.0f),
+                    new DirectionalFingerMessageGenerator(Finger.FingerType.TYPE_THUMB, 4,0.0f, 90.0f)
                 };
             }
             else

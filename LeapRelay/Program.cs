@@ -68,32 +68,6 @@ namespace LeapSample
             var handMessageGenerator = new HandMessageGenerator(false);
             output = handMessageGenerator.GetArduinoMessage(hand);
 
-            //if (frame.Hands.Count() == 0)
-            //{
-            //    // -1 per finger
-            //    output = new byte[] {
-            //        0x43,
-            //        0xFF, 0xFF, 
-            //                            0xFF, 0xFF, 
-            //                            0xFF, 0xFF, 
-            //                            0xFF, 0xFF, 
-            //                            0xFF, 0xFF};
-            //}
-            //else
-            //{
-            //    var hand = frame.Hands.First();
-            //    // pass the position values as shorts
-            //    //output = hand.Fingers.Select(f => f.IsExtended ? (byte)0x00 : (byte)0xFF)
-            //    //    .SelectMany(f => new byte[] { f, 0x00 }).ToArray();
-               
-                
-
-            //    var angles = hand.Fingers.Select(f => hand.Direction.AngleTo(f.Direction).Remap(0.0f, 2.2f, 0.0f, 255));
-            //    SafeWriteLine(string.Join("\t", angles));
-            //    var temp = angles.SelectMany(f => new byte[] { (byte)(f), 0x00 }).ToList();
-            //    temp.Insert(0, 0x43);
-            //    output = temp.ToArray();
-            //}
             serialPort.Write(output, 0, output.Length);
         }
 

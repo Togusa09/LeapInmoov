@@ -17,7 +17,14 @@ namespace LeapSample.MessageGenerator
 
         public byte[] GetCommandBytes(IFingerProxy finger, IHandProxy hand)
         {
-            return ConvertShortToBytes(finger.Extended ? (short)255 : (short)1);
+            // If finger isn't found, return -1
+            if (finger == null || hand == null)
+                return ConvertShortToBytes(-1);
+
+            if (!finger.Extended)
+                return ConvertShortToBytes((short)255);
+
+            return ConvertShortToBytes(0);
         }
     }
 }
