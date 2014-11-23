@@ -1,30 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Leap;
-using LeapSample;
-using System.Linq;
 using System.Collections.Generic;
+using LeapSample.MessageGenerator;
 
 namespace LeapRelay.Test
 {
-
     [TestClass]
-    public class FingerModelTest
+    public class HandMessageGeneratorTest
     {
         [TestMethod]
-        public void TestGetBytes()
-        {
-            var handVector = new Vector(1.0f, 0.0f, 0.0f);
-            var fingerVector = new Vector(0.0f, 1.0f, 0.0f);
-            var fingerModel = new FingerModel(Finger.FingerType.TYPE_INDEX, 0, 0.0f, 90.0f);
-
-            var resultBytes = fingerModel.GetBytes(fingerVector, handVector);
-
-            CollectionAssert.AreEqual(new byte[] { 0xFF, 0x00 }, resultBytes);
-        }
-
-        [TestMethod]
-        public void Test1()
+        public void TestHandMessageGenerator()
         {
             var handProxy = new TestHandProxy
             {
@@ -38,9 +24,9 @@ namespace LeapRelay.Test
                 }
             };
 
-            var fingerMotionThing = new FingerMotionThing();
+            var messageGenerator = new HandMessageGenerator(false);
 
-            var message = fingerMotionThing.GetArduinoMessage(handProxy);
+            var message = messageGenerator.GetArduinoMessage(handProxy);
             // At the moment the expected finger angle boundaries are hard coded into the class
             // So at the moment the test can't validate the message, as we don't know what it should be
             //CollectionAssert.AreEqual(new byte[] { 0x43, 191, 0x00 }, message);

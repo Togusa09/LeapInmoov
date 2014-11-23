@@ -22,5 +22,11 @@ namespace LeapSample.LeapProxy
         }
 
         public Vector Direction { get { return _Finger.Direction; } }
+
+
+        public bool Extended
+        {
+            get { return _Finger.IsExtended; }
+        }
     }
 }

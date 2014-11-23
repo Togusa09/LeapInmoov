@@ -17,5 +17,12 @@ namespace LeapRelay.Test
         }
 
         public Vector Direction { get; set;  }
+
+
+        public bool Extended
+        {
+            get;
+            set;
+        }
     }
 }

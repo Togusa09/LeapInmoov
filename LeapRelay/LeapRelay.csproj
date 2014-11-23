@@ -45,8 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extension.cs" />
-    <Compile Include="Finger.cs" />
-    <Compile Include="FingerMotionThing.cs" />
+    <Compile Include="MessageGenerator\BaseFingerMessageGenerator.cs" />
+    <Compile Include="MessageGenerator\DirectionalFingerMessageGenerator.cs" />
+    <Compile Include="MessageGenerator\ExtendedFingerMessageGenerator.cs" />
+    <Compile Include="MessageGenerator\HandMessageGenerator.cs" />
+    <Compile Include="MessageGenerator\IFingerMessageGenerator.cs" />
+    <Compile Include="MessageGenerator\IHandMessageGenerator.cs" />
     <Compile Include="IHandProxy.cs" />
     <Compile Include="IFingerProxy.cs" />
     <Compile Include="LeapProxy\LeapFingerProxy.cs" />

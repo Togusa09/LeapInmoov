@@ -11,5 +11,7 @@ namespace LeapSample
     {
         Leap.Finger.FingerType Type { get; }
         Vector Direction { get; }
+
+        bool Extended { get; }
     }
 }
