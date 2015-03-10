@@ -21,7 +21,7 @@ namespace LeapSample.MessageGenerator
             if (finger == null || hand == null)
                 return ConvertShortToBytes(-1);
 
-            if (!finger.Extended)
+            if (finger.Extended)
                 return ConvertShortToBytes((short)255);
 
             return ConvertShortToBytes(0);

@@ -2,7 +2,7 @@
 #include "Finger.h"
 
 // PWM pins for leonardo
-int fingerPins[] = {3, 5, 6, 7, 9, 10, 11, 13};
+int fingerPins[] = {2,3,4,5,6,7,8,9,10,11};
 //Servo* fingerServos[5];
 Finger* fingers[5];
 
@@ -11,14 +11,19 @@ void setup()
 	for (int finger = 0; finger < 5; finger++)
 	{
 		// Am using 180 degree servos. Would be 255 for 90 degree
-		fingers[finger] = new Finger(fingerPins[finger], 10, 128);
+	    fingers[finger] = new Finger(fingerPins[finger], 10, 255);
 	}
+        //for (int finger = 5; finger < 10; finger++)
+	//{
+		// Am using 180 degree servos. Would be 255 for 90 degree
+	 //   fingers[finger] = new Finger(fingerPins[finger], 10, 128);
+	//}
 
 	//Initialize serial and wait for port to open:
-	Serial.begin(9600);
-	while (!Serial) {
-		;
-	}
+	Serial.begin(57600);
+	//while (!Serial) {
+	//	;
+	//}
 }
 
 void loop()

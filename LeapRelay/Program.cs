@@ -33,7 +33,7 @@ namespace LeapSample
             //controller.Dispose();
 
             serialPort = new SerialPort();
-            serialPort.PortName = "COM17";
+            serialPort.PortName = "COM7";
             serialPort.BaudRate = 57600;
             serialPort.DtrEnable = true;
             serialPort.DataReceived += serialPort_DataReceived;
@@ -42,8 +42,8 @@ namespace LeapSample
             if (!controller.IsConnected)
                 Console.WriteLine("Leap controller is not connected");
 
-            handMessageGenerator = new HandMessageGenerator(false);
-
+            handMessageGenerator = new HandMessageGenerator(true);
+            Thread.Sleep(1000);
             while(true)
             {
                 UpdateArdiuno();
@@ -55,7 +55,7 @@ namespace LeapSample
         {
                 SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-           // SafeWriteLine(indata);
+            SafeWriteLine(indata);
         }
 
         static void UpdateArdiuno()
@@ -65,7 +65,7 @@ namespace LeapSample
             var hand = frame.Hands.Any() ? new LeapHandProxy(frame.Hands.First()) : null;
 
             byte[] output;
-            var handMessageGenerator = new HandMessageGenerator(false);
+            //var handMessageGenerator = new HandMessageGenerator(false);
             output = handMessageGenerator.GetArduinoMessage(hand);
 
             serialPort.Write(output, 0, output.Length);
