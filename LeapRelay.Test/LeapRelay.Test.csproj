@@ -54,7 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DirectionalFingerMessageGeneratorTest.cs" />
+    <Compile Include="DirectionalFingerMessageGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFingerProxy.cs" />
     <Compile Include="TestHandProxy.cs" />
